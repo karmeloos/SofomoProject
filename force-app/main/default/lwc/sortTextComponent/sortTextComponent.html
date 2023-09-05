@@ -1,0 +1,16 @@
+<template>
+  <lightning-card title={cardTitle}>
+    <div class="slds-var-p-around_medium">
+      <lightning-textarea
+        lwc:ref="textArea"
+        label="Insert text to sort"
+        value={text}
+      ></lightning-textarea>
+      <lightning-button
+        variant="brand"
+        label="Sort"
+        onclick={handleSort}
+      ></lightning-button>
+    </div>
+  </lightning-card>
+</template>
