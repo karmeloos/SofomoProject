@@ -1,8 +1,11 @@
 import { LightningElement, api } from "lwc";
 import { SortJavaScriptController } from "./sortJavaScriptController.js";
+import { SortApexController } from "./sortApexController.js";
+
 
 const CONTROLLERS_MAP = new Map()
 CONTROLLERS_MAP.set('JavaScript', new SortJavaScriptController());
+CONTROLLERS_MAP.set('Apex', new SortApexController());
 
 export default class SortTextComponent extends LightningElement {
   text;
@@ -10,15 +13,15 @@ export default class SortTextComponent extends LightningElement {
   @api controllerType;
   controller;
 
-  connectedCallback() {
+  async connectedCallback() {
     console.log(this.controllerType);
     if(! CONTROLLERS_MAP.has(this.controllerType)) return;
     this.controller = CONTROLLERS_MAP.get(this.controllerType);
-    this.text = this.controller.getDefaultText();
+    this.text = await this.controller.getDefaultText();
   }
 
-  handleSort() {
+  async handleSort() {
     const currentTextValue = this.refs.textArea.value;
-    this.text = this.controller.sortText(currentTextValue);
+    this.text = await this.controller.sortText(currentTextValue);
   }
 }

@@ -7,6 +7,7 @@ export class SortJavaScriptController {
   }
 
   sortText(inText) {
+    if(!inText) return '';
     const arrayText = inText.split("\n");
     const sortedArrayText = arrayText.sort((a, b) => b.length - a.length);
     return sortedArrayText.join('\n');
