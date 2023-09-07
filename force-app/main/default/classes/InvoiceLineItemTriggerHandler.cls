@@ -9,15 +9,15 @@ public with sharing class InvoiceLineItemTriggerHandler implements ITriggerHandl
 
     }
     public void afterInsert(Map<Id, SObject> newItems) {
-
+        new RollupInvoiceItemsService().updateInvoiceAmountField(newItems.values());
     }
     public void afterUpdate(Map<Id, SObject> newItems, Map<Id, SObject> oldItems) {
-
+        new RollupInvoiceItemsService().updateInvoiceAmountField(newItems.values());
     }
     public void afterDelete(Map<Id, SObject> oldItems) {
-
+        new RollupInvoiceItemsService().updateInvoiceAmountField(oldItems.values());
     }
     public void afterUndelete(Map<Id, SObject> oldItems) {
-
+        new RollupInvoiceItemsService().updateInvoiceAmountField(oldItems.values());
     }
 }
