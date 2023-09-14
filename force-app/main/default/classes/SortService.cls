@@ -7,7 +7,7 @@ public with sharing class SortService {
 
   public static String sortText(String inText) {
     if(String.isBlank(inText)) {
-      return '';
+      throw new NullPointerException();
     }
     List<String> textArray = inText.split('\n');
     if(textArray.size() == 1) {

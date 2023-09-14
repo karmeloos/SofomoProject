@@ -1,7 +1,9 @@
 public with sharing class RollupInvoiceItemsService {
 
     public void updateInvoiceAmountField(List<Invoice_Line_Item__c> invoiceItemList) {
-        System.debug(invoiceItemList[0].Invoice__c);
+        if(invoiceItemList == null || invoiceItemList.isEmpty()) {
+            return;
+        }
         Set<Id> invoiceIds = new Set<Id>();
         for (Invoice_Line_Item__c loopInvoiceItem : invoiceItemList) {
             if(loopInvoiceItem.Invoice__c == null) {
