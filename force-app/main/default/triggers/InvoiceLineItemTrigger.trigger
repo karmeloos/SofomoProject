@@ -7,5 +7,5 @@ trigger InvoiceLineItemTrigger on Invoice_Line_Item__c(
   after delete,
   after undelete
 ) {
-    TriggerDispacher.run(new InvoiceLineItemTriggerHandler());
+    TriggerDispatcher.run(new InvoiceLineItemTriggerHandler());
 }
