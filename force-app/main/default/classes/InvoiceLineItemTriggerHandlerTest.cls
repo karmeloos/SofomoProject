@@ -2,7 +2,7 @@
 public with sharing class InvoiceLineItemTriggerHandlerTest {
 
     @IsTest
-    static void succesAllMethodExecutionTest(){
+    static void successAllMethodExecutionTest(){
         Boolean isNotError = true;
         InvoiceLineItemTriggerHandler testHandler = new InvoiceLineItemTriggerHandler();
         List<SObject> emptyList = new List<SObject>();

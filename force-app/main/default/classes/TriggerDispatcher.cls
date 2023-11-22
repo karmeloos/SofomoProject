@@ -1,4 +1,4 @@
-public with sharing class TriggerDispacher {
+public with sharing class TriggerDispatcher {
   public static void run(ITriggerHandler handler) {
     if (Trigger.isBefore) {
       if (Trigger.isInsert) {
